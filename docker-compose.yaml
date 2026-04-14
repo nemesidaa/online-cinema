@@ -1,0 +1,5 @@
+# TPServer + gRPCStream for S3 applicated data
+# nginx (with front directory mounting from rootproj/frontend)
+# s3-receiver(go, rpcStreamers)
+# NATS (connexion between TPS and s3-receiver)
+# rowDB (userilst, adminpan, film list and prices)

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package MediaService.v1;
+
+option go_package = "rpc";
+
+enum Resolution {
+    RESO_LOW = 0; // ld
+    RESO_MEDIUM = 1; // sd
+    RESO_HIGH = 2; // hd
+    RESO_MAX = 3; // uhd (not for thumbs)
+}
+
+message GetMediaRequest {
+    string id = 1;
+    Resolution reso = 2;
+    string dir = 3;
+}
+
+message GetThumbResponse {
+    bytes payload = 1;
+    uint32 index = 2;
+}
+
+message GetVideoResponse {
+    bytes payload = 1;
+    uint32 index = 2;
+}
+
+service ThumbnailService {
+    rpc GetThumb (GetMediaRequest) returns (stream GetThumbResponse); // отдаем id из S3, получаем превью фильма
+}
+
+service VideoService {
+    rpc GetVideo (GetMediaRequest) returns (stream GetVideoResponse); // получение видео
+}
