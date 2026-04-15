@@ -7,8 +7,8 @@ type FilestorageConfig struct {
 		Username string `yaml:"username"`
 		Password string `yaml:"password"`
 	}
-	Timeout            time.Time `yaml:"timeout"`
-	DefaultBucket      string    `yaml:"default_bucket"`
-	Address            string    `yaml:"address"`
-	ChannelPayloadSize int       `yaml:"channel_payload_size"`
+	Timeout            time.Duration `yaml:"timeout"`
+	DefaultBucket      string        `yaml:"default_bucket"`
+	Address            string        `yaml:"address"`
+	ChannelPayloadSize int           `yaml:"channel_payload_size"`
 }
